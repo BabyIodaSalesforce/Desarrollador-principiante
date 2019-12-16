@@ -1,0 +1,42 @@
+Crear un objeto personalizado
+
+
+   1. Desplácese a la parte inferior de esta página.
+   2. Haga clic en la flecha junto a Iniciar y seleccione Crear un Trailhead Playground. ¡No omita este paso! Necesita utilizar un Trailhead Playground nuevo y limpio para este módulo.
+   3. Una vez se cree su Playground (¡solo tardará un minuto!), pulse Iniciar.
+   4. Haga clic en el icono de engranaje Engranaje de configuración. situado en la parte superior de la página para ejecutar la configuración.
+   5. Haga clic en la ficha Gestor de objetos.
+   6. Haga clic en la opción Crear | Objeto personalizado situada en la esquina superior derecha.
+   7. En Etiqueta, ingrese Propiedad. Tenga en cuenta que los campos Nombre de objeto y Nombre del registro se rellenan automáticamente.
+   8. En Etiqueta plural, ingrese Propiedades.
+   9. Active la casilla Iniciar el asistente de nueva ficha personalizada después de guardar este objeto personalizado.
+   10. Deje los valores predeterminados para el resto de opciones y haga clic en Guardar.
+   11. En la página Nueva ficha de objeto personalizado, haga clic en el campo Estilo de fila y seleccione un estilo que le guste. El estilo establece el icono para mostrar en la interfaz de usuario para el objeto.
+   12. Haga clic en Siguiente, Siguiente y en Guardar.
+   
+ --------------------------------
+ 
+ Crear un campo personalizado
+ 
+ 
+   1. Desde Configuración, vaya a Gestor de objetos | Propiedad.
+   2. En la barra lateral, haga clic en Campos y relaciones. Preste atención a los campos existentes. Encontrará un campo de nombre y algunos de los campos de sistema de los que hablamos anteriormente.
+   3. Haga clic en la opción Nuevo situada en la parte superior derecha.
+   4. Para el tipo de datos, seleccione Divisa.
+   5. Haga clic en Siguiente.
+   6. Especifique lo siguiente:
+        Etiqueta de campo Precio
+        Descripción: Precio de venta de la vivienda.
+   7. Active la casilla Requerido.
+   8. Haga clic en Siguiente. Haga clic en Siguiente de nuevo y, a continuación, seleccione Guardar.
+
+ 
+----------------------------------
+Crear un registro
+
+
+   1. Desde el Iniciador de aplicación Icono del Iniciador de aplicación. situado en la parte superior de la página, seleccione Ventas.
+   2. Haga clic en la ficha Propiedades de la barra de navegación. Si no puede verla, mire en la lista desplegable Más.
+   3. Haga clic en la opción Nuevo en la esquina superior.
+   4. Ingrese un nombre y un precio para la propiedad y haga clic en Guardar.
+
