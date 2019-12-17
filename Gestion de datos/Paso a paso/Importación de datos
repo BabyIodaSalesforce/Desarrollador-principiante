@@ -1,3 +1,5 @@
+https://trailhead.salesforce.com/es-MX/content/learn/modules/lex_implementation_data_management/lex_implementation_data_import
+
 1.Use el software existente para crear un archivo de exportación de datos.
 2.Limpie el archivo de importación para garantizar la precisión y la coherencia. Esto implica la actualización de datos para eliminar duplicados, la eliminación de información innecesaria, la corrección ortográfica y de otros errores y la aplicación de las convenciones de nomenclatura.
 3.Compare sus campos de datos con los campos de Salesforce en los que puede importar y verifique que sus datos se asignarán a los campos de Salesforce adecuados. Es posible que necesite ajustar la asignación antes de completar la importación. Para obtener más información, consulte Asignación de campos para fuentes de datos en la ayuda online.
