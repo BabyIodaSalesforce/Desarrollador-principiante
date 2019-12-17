@@ -1,0 +1,42 @@
+1.Use el software existente para crear un archivo de exportación de datos.
+2.Limpie el archivo de importación para garantizar la precisión y la coherencia. Esto implica la actualización de datos para eliminar duplicados, la eliminación de información innecesaria, la corrección ortográfica y de otros errores y la aplicación de las convenciones de nomenclatura.
+3.Compare sus campos de datos con los campos de Salesforce en los que puede importar y verifique que sus datos se asignarán a los campos de Salesforce adecuados. Es posible que necesite ajustar la asignación antes de completar la importación. Para obtener más información, consulte Asignación de campos para fuentes de datos en la ayuda online.
+4.Realice los cambios de configuración necesarios en Salesforce para controlar los datos importados. Por ejemplo, es posible que necesite crear campos personalizados, agregar valores nuevos a listas de selección o desactivar temporalmente reglas de flujo de trabajo
+
+------------------------------------------------
+Utilizar el asistente de importación de datos
+------------------------------------------------
+
+1.Inicie el asistente.
+
+   * En Configuración, ingrese Asistente de importación de datos en el cuadro Búsqueda rápida y, a continuación, seleccione Asistente de importación de datos.
+   * Revise la información proporcionada en la página de bienvenida y, a continuación, haga clic en Inicie el asistente.
+
+2.Seleccione los datos que desee importar.
+
+   * Para importar cuentas, contactos, prospectos, soluciones, cuentas personales o miembros de campaña, haga clic en Objetos estándar. Para importar objetos personalizados, haga clic en Objetos personalizados.
+   * Especifique si desea agregar nuevos registros a Salesforce, actualizar registros existentes o agregar y actualizar registros de forma simultánea.
+   * Especifique los criterios de coincidencia y de otro tipo que sean necesarios. Pase el ratón sobre los signos de interrogación para obtener más información sobre cada opción.
+   * Especifique el archivo que contiene los datos.
+   * Puede especificar su archivo de datos arrastrando el CSV a la zona de carga de la página o haciendo clic en la categoría de CSV que está utilizando y después navegando hasta el archivo y seleccionándolo.
+   * Seleccione un método de codificación de caracteres para su archivo. La mayoría de los usuarios puede aceptar la codificación de caracteres predeterminada.
+   * Haga clic en Siguiente.
+   
+3.Asigne sus campos de datos a campos de datos de Salesforce.
+El asistente de importación de datos intenta asignar tantos campos de datos como es posible con campos de datos estándar de Salesforce. Si Salesforce no puede asignar los campos automáticamente, debe hacerlo de forma manual. Los campos no asignados no se importan en Salesforce.
+
+Para ver una lista de campos de datos estándar de Salesforce, en Configuración, en la parte superior de la página, haga clic en Gestor de objetos. Haga clic en el objeto en cuyos campos está interesado y haga clic en Campos y relaciones. Por ejemplo, si desea ver una lista de campos estándar de Salesforce para prospectos, haga clic en Gestor de objetos | Prospecto | Campos y relaciones.
+
+   * Analice la lista de campos de datos asignados para localizar los campos sin asignar.
+   * Haga clic en Mapa junto al nombre del campo sin asignar.
+   * En el cuadro de diálogo Asigne su campo, seleccione los campos de Salesforce a los que desee asignar y haga clic en Mapa.
+   * Para cambiar las asignaciones que Salesforce realizó automáticamente, haga clic en Cambiar a la izquierda del campo en cuestión y, a continuación, elija los campos de Salesforce a los que desea asignar y haga clic en Asignar.
+   * Haga clic en Siguiente.
+
+4.Revise e inicie la importación.
+
+   * Revise la información de importación en la página Revisar. Si aún tiene campos sin asignar que desee importar, haga clic en Anterior para regresar a la página anterior y especificar sus asignaciones.
+   * Haga clic en Iniciar importación.
+
+5.Compruebe el estado de importación.
+En Configuración, ingrese Trabajos de carga de datos masivos en el cuadro Búsqueda rápida y, a continuación, seleccione Trabajos de carga de datos masivos.
