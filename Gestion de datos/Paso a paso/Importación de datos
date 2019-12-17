@@ -42,3 +42,9 @@ Para ver una lista de campos de datos estándar de Salesforce, en Configuración
 
 5.Compruebe el estado de importación.
 En Configuración, ingrese Trabajos de carga de datos masivos en el cuadro Búsqueda rápida y, a continuación, seleccione Trabajos de carga de datos masivos.
+
+
+------------------------
+EXPORTAR DATOS
+-----------------------
+https://trailhead.salesforce.com/es-MX/content/learn/modules/lex_implementation_data_management/lex_implementation_data_export
