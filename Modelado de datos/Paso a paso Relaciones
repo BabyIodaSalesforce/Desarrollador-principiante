@@ -1,0 +1,24 @@
+-------------------------------------
+Crear una relación de búsqueda
+--------------------------------------
+
+   1. Desde Configuración, vaya a Gestor de objetos | Favorito.
+   2. En la barra lateral, haga clic en Campos y relaciones.
+   3. Haga clic en Nuevo.
+   4. Seleccione Relación de búsqueda y haga clic en Siguiente.
+   5. En Relacionado con, elija Contacto. Para DreamHouse, los contactos son compradores potenciales de viviendas.
+   6. Haga clic en Siguiente.
+   7. En Nombre de campo, ingrese Contacto y haga clic en Siguiente.
+   8. Haga clic en Siguiente. Seleccione Siguiente y, a continuación, Guardar y nuevo.
+
+-----------------------------------------
+Crear una relación principal-detalle
+-----------------------------------------
+
+
+  1.  Seleccione Relación principal-detalle y haga clic en Siguiente.
+  2.  En Relacionado con, elija Propiedad.
+  3.  Haga clic en Siguiente.
+  4.  En Nombre de campo, ingrese Propiedad y haga clic en Siguiente.
+  5.  Haga clic en Siguiente, Siguiente y en Guardar.
+
