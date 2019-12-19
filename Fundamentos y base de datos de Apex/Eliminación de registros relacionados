@@ -1,0 +1,4 @@
+la eliminación de la cuenta creada anteriormente (SFDC Account) eliminará también su contacto relacionado.
+-----------------------
+Account[] queriedAccounts = [SELECT Id FROM Account WHERE Name='SFDC Account'];
+delete queriedAccounts;
