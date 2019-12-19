@@ -1,0 +1,30 @@
+-----------------------
+Para obtener registros secundarios relacionados con un registro principal, agregue una consulta interna para los registros secundarios. La cláusula FROM de la consulta interna se ejecuta según el nombre de la relación en lugar de un nombre de objeto de Salesforce. Este ejemplo incluye una consulta interna para obtener todos los contactos asociados a cada cuenta devuelta. La cláusula FROM especifica la relación Contacts, que es una relación predeterminada de la cuenta que vincula cuentas y contactos.
+-------------------------}
+
+SELECT Name, (SELECT LastName FROM Contacts) FROM Account WHERE Name = 'SFDC Computing'
+
+
+
+--------------------------
+ ejemplo de consulta SOQL en Apex y en él se muestra cómo obtener registros secundarios del resultado de SOQL mediante el nombre de la relación Contacts en el sObject.
+ 
+--------------------
+Account[] acctsWithContacts = [SELECT Name, (SELECT FirstName,LastName FROM Contacts)
+                               FROM Account 
+                               WHERE Name = 'SFDC Computing'];
+// Get child records
+Contact[] cts = acctsWithContacts[0].Contacts;
+System.debug('Name of first associated contact: ' 
+             + cts[0].FirstName + ', ' + cts[0].LastName);
+             
+
+
+----------------------------------
+Puede recorrer una relación desde un objeto secundario (contacto) hasta un campo de su objeto principal (Account.Name) mediante la notación de puntos. Por ejemplo, el siguiente miniprograma de Apex consulta los registros de contacto cuyo nombre es Carol y puede recuperar el nombre de la cuenta asociada de Carol mediante el recorrido de la relación entre cuentas y contactos.
+----------------------
+Contact[] cts = [SELECT Account.Name FROM Contact 
+                 WHERE FirstName = 'Carol' AND LastName='Ruiz'];
+Contact carol = cts[0];
+String acctName = carol.Account.Name;
+System.debug('Carol\'s account name is ' + acctName);
