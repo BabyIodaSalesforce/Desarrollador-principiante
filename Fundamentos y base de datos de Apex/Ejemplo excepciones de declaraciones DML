@@ -1,0 +1,15 @@
+Si una operación DML genera un error, devuelve una excepción del tipo DmlException. Puede capturar las excepciones del código para controlar los errores.
+
+En este ejemplo se produce una excepción del tipo DmlException porque se intenta insertar una cuenta sin el campo Nombre obligatorio. La excepción se captura en un bloque de captura.
+
+-------------------------------------------
+try {
+    // This causes an exception because 
+    //   the required Name field is not provided.
+    Account acct = new Account();
+    // Insert the account 
+    insert acct;
+} catch (DmlException e) {
+    System.debug('A DML exception has occurred: ' +
+                e.getMessage());
+}
