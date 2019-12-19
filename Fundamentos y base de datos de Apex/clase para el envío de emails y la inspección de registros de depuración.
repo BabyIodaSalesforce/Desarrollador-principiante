@@ -1,3 +1,7 @@
+-----------------------------------------
+Guardar una clase de Apex
+-----------------------------------------
+
 1.Abra Developer Console bajo Su nombre o el menú de acceso rápido (Icono de engranaje).
 2.En Developer Console, haga clic en File (Archivo) | New (Nuevo) | Apex Class (Clase de Apex), ingrese EmailManager para el nombre de la clase y haga clic en OK (Aceptar).
 3.Sustituya el cuerpo de clase predeterminado por el ejemplo de clase EmailManager.
@@ -46,3 +50,51 @@ public class EmailManager {
         return sendResult;
     }
 }
+
+
+-------------------------------------
+Llamar a un método para el envío de email
+--------------------------------------
+1.En Developer Console, haga clic en Debug (Depuración) | Open Execute Anonymous Window (Abrir ventana de ejecución anónima).
+2.En la ventana que se abre, ingrese lo siguiente. Sustituya 'Your email address' por su dirección de email.
+
+
+EmailManager em = new EmailManager();
+em.sendMail('Your email address', 'Trailhead Tutorial', '123 body');
+
+3.Haga clic en Execute (Ejecutar).
+
+*Ahora que el método se ha ejecutado, debe recibir un email en su bandeja de entrada. Compruebe su email.
+
+
+
+----------------------------------------------------
+Inspeccionar registros de depuración
+----------------------------------------------------
+1.En Developer Console, haga clic en la ficha Logs (Registros) y haga doble clic en el registro más reciente de la lista.
+2.Seleccione Debug Only (Solo depurar) para filtrar el registro de modo que solo se muestren las líneas de registro para las declaraciones System.debug().
+3.Verá el siguiente mensaje en la vista de registro filtrada suponiendo que el email se ha enviado sin errores.
+DEBUG|Email sent successfully.
+
+
+
+------------------------------------------------------
+Llamar a un método estático
+-----------------------------------------------------
+1.En Developer Console, busque la ficha abierta para la clase EmailManager y modifique la primera línea de la definición del método sendMail() 
+del modo siguiente (el único cambio es la adición de la palabra clave static).
+
+public static void sendMail(String address, String subject, String body) {
+
+2.Pulse Ctrl+S para guardar la clase.
+3.Modifique las declaraciones de la ventana de ejecución anónima para llamar al método estático en el nombre de clase.
+
+EmailManager.sendMail('Your email address', 'Trailhead Tutorial', '123 body');
+
+4.Haga clic en Execute (Ejecutar).
+
+*Una vez ejecutado este método, puede comprobar su email y, de forma opcional, el registro de depuración como en los pasos anteriores.
+
+
+
+
