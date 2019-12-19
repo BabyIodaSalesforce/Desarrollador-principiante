@@ -1,0 +1,5 @@
+En este ejemplo se muestra cómo eliminar todos los contactos con el apellido Smith. Si realiza las acciones del ejemplo en el caso de DML masivo, su organización ya debería tener dos contactos con el apellido Smith. Ejecute este miniprograma en la consola de desarrollador mediante Apex anónimo y, a continuación, verifique que ya no hay contactos con el apellido Smith.
+
+
+Contact[] contactsDel = [SELECT Id FROM Contact WHERE LastName='Smith']; 
+delete contactsDel;
