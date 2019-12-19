@@ -1,0 +1,6 @@
+Este es un ejemplo de consulta SOSL en el que se buscan cuentas y contactos que tengan campos con la palabra 'SFDC'.
+
+
+
+List<List<SObject>> searchList = [FIND 'SFDC' IN ALL FIELDS 
+                                      RETURNING Account(Name), Contact(FirstName,LastName)];
