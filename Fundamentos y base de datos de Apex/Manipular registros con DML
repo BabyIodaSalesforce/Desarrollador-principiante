@@ -1,0 +1,9 @@
+// Create the account sObject 
+Account acct = new Account(Name='Acme', Phone='(415)555-1212', NumberOfEmployees=100);
+// Insert the account by using DML
+insert acct;
+
+
+-----------------------------
+En este ejemplo se agrega la cuenta Acme a Salesforce. En primer lugar se crea una cuenta sObject y, a continuación, se pasa como un argumento a la declaración insert, lo que tiene como resultado la persistencia del registro en Salesforce.
+-------------------------
