@@ -1,0 +1,5 @@
+//En este ejemplo se muestra cómo usar la variable targetDepartment en la cláusula WHERE.
+
+String targetDepartment = 'Wingo';
+Contact[] techContacts = [SELECT FirstName,LastName 
+                          FROM Contact WHERE Department=:targetDepartment];
