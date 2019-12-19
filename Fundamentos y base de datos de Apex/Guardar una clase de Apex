@@ -1,0 +1,48 @@
+1.Abra Developer Console bajo Su nombre o el menú de acceso rápido (Icono de engranaje).
+2.En Developer Console, haga clic en File (Archivo) | New (Nuevo) | Apex Class (Clase de Apex), ingrese EmailManager para el nombre de la clase y haga clic en OK (Aceptar).
+3.Sustituya el cuerpo de clase predeterminado por el ejemplo de clase EmailManager.
+
+La clase EmailManager tiene un método público (sendMail()) que envía email y usa métodos de mensajería integrados de la biblioteca de clases de Apex. Además, esta clase tiene
+un método auxiliar privado (inspectResults()), al cual no se puede llamar externamente debido a que es privado, pero se usa solamente en la clase. Este método auxiliar inspecciona 
+los resultados del envío de email y se puede llamar a él mediante sendMail().
+
+
+public class EmailManager {
+    // Public method
+    public void sendMail(String address, String subject, String body) {
+        // Create an email message object
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        String[] toAddresses = new String[] {address};
+        mail.setToAddresses(toAddresses);
+        mail.setSubject(subject);
+        mail.setPlainTextBody(body);
+        // Pass this email message to the built-in sendEmail method 
+        // of the Messaging class
+        Messaging.SendEmailResult[] results = Messaging.sendEmail(
+                                 new Messaging.SingleEmailMessage[] { mail });
+        
+        // Call a helper method to inspect the returned results
+        inspectResults(results);
+    }
+    
+    // Helper method
+    private static Boolean inspectResults(Messaging.SendEmailResult[] results) {
+        Boolean sendResult = true;
+        
+        // sendEmail returns an array of result objects.
+        // Iterate through the list to inspect results. 
+        // In this class, the methods send only one email, 
+        // so we should have only one result.
+        for (Messaging.SendEmailResult res : results) {
+            if (res.isSuccess()) {
+                System.debug('Email sent successfully');
+            }
+            else {
+                sendResult = false;
+                System.debug('The following errors occurred: ' + res.getErrors());                 
+            }
+        }
+        
+        return sendResult;
+    }
+}
