@@ -1,0 +1,16 @@
+Los campos de los registros relacionados no se pueden actualizar con la misma llamada a la operación DML y requieren una llamada a DML independiente. Por ejemplo, si va a insertar un contacto nuevo, puede especificar el registro de cuenta relacionado del contacto mediante la configuración del valor del campo AccountId. No obstante, no puede cambiar el nombre de la cuenta sin actualizar la cuenta mediante una llamada a DML independiente. De forma similar, al actualizar un contacto, si desea además actualizar la cuenta relacionada del contacto, debe hacer dos llamadas a DML. En el ejemplo siguiente se actualizan un contacto y su cuenta relacionada mediante dos declaraciones update.
+
+// Query for the contact, which has been associated with an account.
+Contact queriedContact = [SELECT Account.Name 
+                          FROM Contact 
+                          WHERE FirstName = 'Mario' AND LastName='Ruiz'
+                          LIMIT 1];
+// Update the contact's phone number
+queriedContact.Phone = '(415)555-1213';
+// Update the related account industry
+queriedContact.Account.Industry = 'Technology';
+// Make two separate calls 
+// 1. This call is to update the contact's phone.
+update queriedContact;
+// 2. This call is to update the related account's Industry field.
+update queriedContact.Account; 
