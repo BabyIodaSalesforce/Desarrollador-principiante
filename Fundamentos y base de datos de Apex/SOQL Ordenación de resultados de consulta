@@ -1,0 +1,9 @@
+//ordenan todas las cuentas recuperadas según el campo Name.
+SELECT Name,Phone FROM Account ORDER BY Name
+
+//El orden predeterminado es el orden alfabético, el cual se especifica como ASC. La declaración anterior es equivalente a:
+SELECT Name,Phone FROM Account ORDER BY Name ASC
+
+//Para invertir el orden, use la palabra clave DESC para aplicar el orden descendente:
+SELECT Name,Phone FROM Account ORDER BY Name DESC
+
