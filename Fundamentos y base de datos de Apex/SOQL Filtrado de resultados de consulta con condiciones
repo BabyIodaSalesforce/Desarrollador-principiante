@@ -1,0 +1,8 @@
+//En el siguiente ejemplo se recuperan solo las cuentas cuyos nombres son SFDC Computing. Observe que no se aplica la distinción entre mayúsculas y minúsculas a las comparaciones de las cadenas.
+SELECT Name,Phone FROM Account WHERE Name='SFDC Computing'
+
+//Por ejemplo, esta consulta devuelve todas las cuentas con el nombre SFDC Computing y más de 25 empleados:
+SELECT Name,Phone FROM Account WHERE (Name='SFDC Computing' AND NumberOfEmployees>25)
+
+//ejemplo con una condición más compleja. Esta consulta devuelve todas las cuentas SFDC Computing o todas las cuentas con más de 25 empleados cuya ciudad de facturación es Los Angeles.
+SELECT Name,Phone FROM Account WHERE (Name='SFDC Computing' OR (NumberOfEmployees>25 AND BillingCity='Los Angeles'))
