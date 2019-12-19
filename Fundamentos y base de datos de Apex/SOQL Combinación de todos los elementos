@@ -1,0 +1,8 @@
+//Puede combinar las cláusulas opcionales en una sola consulta en el orden siguiente
+
+
+
+SELECT Name,Phone FROM Account 
+                   WHERE (Name = 'SFDC Computing' AND NumberOfEmployees>25)
+                   ORDER BY Name
+                   LIMIT 10
