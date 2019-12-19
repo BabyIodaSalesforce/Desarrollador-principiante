@@ -1,0 +1,3 @@
+ Por ejemplo, esta consulta recupera la primera cuenta devuelta. Observe que el valor devuelto es una sola cuenta y no un conjunto cuando se usa LIMIT 1.
+ 
+ Account oneAccountOnly = [SELECT Name,Phone FROM Account LIMIT 1];
