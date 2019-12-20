@@ -1,0 +1,48 @@
+Texto que se busca en todos los campos:
+The Query
+
+Descripción de la búsqueda:
+Esta búsqueda devuelve todos los registros cuyos campos contienen ambas palabras: The y Query en cualquier ubicación del texto. Ni importa el orden de las palabras en el término de búsqueda.
+
+Registros y campos coincidentes:
+Account: The SFDC Query Man (Name field matched)
+------------------------------------------------------
+
+Texto que se busca en todos los campos:
+Wingo OR Man
+
+Descripción de la búsqueda:
+En esta búsqueda se usa el operador lógico OR. Devuelve registros con campos que contienen la palabra Wingo o registros con campos que contienen la palabra Man.
+
+Registros y campos coincidentes:
+Contact: Carol Ruiz, Department: 'Wingo'
+
+Account: The SFDC Query Man (Name field matched)
+------------------------------------------------------
+
+Texto que se busca en todos los campos:
+1212
+
+Descripción de la búsqueda:
+Esta búsqueda devuelve todos los registros cuyos campos contienen la palabra 1212. Los campos de teléfono que terminan por -1212 son coincidentes porque 1212 se considera una palabra y está delimitada por el guión.
+
+Registros y campos coincidentes:
+Account: The SFDC Query Man, Phone: '(415)555-1212'
+
+Contact: Carol Ruiz, Phone: '(415)555-1212'
+
+------------------------------------------------------
+
+Texto que se busca en todos los campos:
+wing*
+
+Descripción de la búsqueda:
+Esta es una búsqueda de un carácter comodín. Esta búsqueda devuelve todos los registros con un valor de campo que empieza por wing.
+
+Registros y campos coincidentes:
+Contact: Maria Ruiz, Department: 'Wingo'
+
+Account: The SFDC Query Man, Description: 'Expert in wing technologies.'
+
+------------------------------------------------------
+  
