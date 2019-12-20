@@ -1,0 +1,31 @@
+Este desencadenador agrega una oportunidad relacionada para cada cuenta nueva o actualizada si no hay ninguna oportunidad asociada a la cuenta. El desencadenador realiza primero una consulta SOQL para obtener todas las oportunidades secundarias de las cuentas en las que se ha activado el desencadenador. A continuación, el desencadenador itera en la lista de sObjects en Trigger.New para obtener el sObject de cada cuenta. Si la cuenta no tiene ningún sObject de oportunidad relacionado, el bucle (for) crea uno. Si el desencadenador ha creado oportunidades, la declaración final las inserta.
+
+1.Agregue el siguiente desencadenador mediante Developer Console (realice los pasos del ejemplo de HelloWorldTrigger, pero use AddRelatedRecord como nombre del desencadenador).
+
+trigger AddRelatedRecord on Account(after insert, after update) {
+    List<Opportunity> oppList = new List<Opportunity>();
+    
+    // Get the related opportunities for the accounts in this trigger
+    Map<Id,Account> acctsWithOpps = new Map<Id,Account>(
+        [SELECT Id,(SELECT Id FROM Opportunities) FROM Account WHERE Id IN :Trigger.New]);
+    
+    // Add an opportunity for each account if it doesn't already have one.
+    // Iterate through each account.
+    for(Account a : Trigger.New) {
+        System.debug('acctsWithOpps.get(a.Id).Opportunities.size()=' + acctsWithOpps.get(a.Id).Opportunities.size());
+        // Check if the account already has a related opportunity.
+        if (acctsWithOpps.get(a.Id).Opportunities.size() == 0) {
+            // If it doesn't, add a default opportunity
+            oppList.add(new Opportunity(Name=a.Name + ' Opportunity',
+                                       StageName='Prospecting',
+                                       CloseDate=System.today().addMonths(1),
+                                       AccountId=a.Id));
+        }           
+    }
+    if (oppList.size() > 0) {
+        insert oppList;
+    }
+}
+
+2.Para probar el desencadenador, cree una cuenta en la interfaz de usuario de Salesforce y asígnele el nombre Apples & Oranges.
+3.En la lista relacionada de oportunidades de la página de la cuenta, busque la oportunidad nueva. El desencadenador ha agregado esta oportunidad automáticamente.
