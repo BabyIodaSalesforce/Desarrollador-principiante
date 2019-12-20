@@ -1,0 +1,15 @@
+Algunas otras variables de contexto devuelven un valor booleano para indicar si el desencadenador se ha activado debido a una actualización o a algún otro evento. Estas variables son de utilidad cuando un desencadenador combina varios eventos. Por ejemplo:
+
+
+trigger ContextExampleTrigger on Account (before insert, after insert, after delete) {
+    if (Trigger.isInsert) {
+        if (Trigger.isBefore) {
+            // Process before insert
+        } else if (Trigger.isAfter) {
+            // Process after insert
+        }        
+    }
+    else if (Trigger.isDelete) {
+        // Process after delete
+    }
+}
