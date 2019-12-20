@@ -1,0 +1,22 @@
+Para hacer una llamada desde un desencadenador, llame a un método de clase que se ejecute de forma asíncrona. Este método se llama método futuro y se anota con @future(callout=true). Esta clase de ejemplo contiene el método futuro que hace la llamada.
+En el ejemplo se una dirección URL de extremo hipotética con fines ilustrativos. No puede ejecutar este ejemplo a menos que cambie el extremo a una URL válida y agregue un sitio remoto en Salesforce para su extremo.
+
+public class CalloutClass {
+    @future(callout=true)
+    public static void makeCallout() {
+        HttpRequest request = new HttpRequest();
+        // Set the endpoint URL.
+        String endpoint = 'http://yourHost/yourService';
+        request.setEndPoint(endpoint);
+        // Set the HTTP verb to GET.
+        request.setMethod('GET');
+        // Send the HTTP request and get the response.
+        HttpResponse response = new HTTP().send(request);
+    }
+}
+
+En este ejemplo se muestra el desencadenador que llama al método en la clase para hacer una llamada asíncrona.
+
+trigger CalloutTrigger on Account (before insert, before update) {
+    CalloutClass.makeCallout();
+}
