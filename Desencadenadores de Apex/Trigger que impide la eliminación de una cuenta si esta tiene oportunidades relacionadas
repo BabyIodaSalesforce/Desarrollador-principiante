@@ -1,0 +1,29 @@
+El siguiente desencadenador impide la eliminación de una cuenta si esta tiene oportunidades relacionadas. De forma predeterminada, la eliminación de una cuenta provoca la eliminación en cascada de todos sus registros relacionados. Este desencadenador impide la eliminación en cascada de las oportunidades. Pruebe este desencadenador. Si ha ejecutado el ejemplo anterior, su organización tiene una cuenta llamada Apples & Oranges con una oportunidad relacionada. En este ejemplo se usa dicha cuenta.
+
+
+1.Use Developer Console para agregar el siguiente desencadenador.
+
+trigger AccountDeletion on Account (before delete) {
+   
+    // Prevent the deletion of accounts if they have related opportunities.
+    for (Account a : [SELECT Id FROM Account
+                     WHERE Id IN (SELECT AccountId FROM Opportunity) AND
+                     Id IN :Trigger.old]) {
+        Trigger.oldMap.get(a.Id).addError(
+            'Cannot delete account with related opportunities.');
+    }
+    
+}
+
+2.En la interfaz de usuario de Salesforce, navegue hasta la página de la cuenta Apples & Oranges y haga clic en Eliminar.
+3.En el mensaje emergente de confirmación, haga clic en Aceptar.
+
+Busque el error de validación con el mensaje de error personalizado Cannot delete account with related opportunities.
+
+4.Desactive el desencadenador AccountDeletion. Si deja este desencadenador activado, no podrá revisar los aspectos complejos.
+
+    *En Setup (Configuración), busque Apex Triggers.
+    *En la página Apex Triggers (Desencadenadores de Apex), haga clic en Edit (Modificar) junto al desencadenador AccountDeletion.
+    *Anule la selección de Is Active (Está activo).
+    *Haga clic en Save (Guardar).
+
