@@ -1,0 +1,7 @@
+Este ejemplo es una versión modificada del desencadenador de ejemplo HelloWorldTrigger. Itera en cada cuenta mediante un bucle (for) y actualiza el campo de descripción en cada caso.
+
+trigger HelloWorldTrigger on Account (before insert) {
+    for(Account a : Trigger.New) {
+        a.Description = 'New description';
+    }   
+}
