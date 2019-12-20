@@ -1,0 +1,20 @@
+Este desencadenador sencillo se activa antes de insertar una cuenta y escribe un mensaje en el registro de depuración.
+
+1.    En Developer Console, haga clic en File (Archivo) | New (Nuevo) | Apex Trigger (Desencadenador de Apex).
+2.    Ingrese HelloWorldTrigger como nombre del desencadenador y, a continuación, seleccione la cuenta para sObject. Haga clic en Submit (Enviar).
+3.    Sustituya el código predeterminado por lo siguiente:
+
+trigger HelloWorldTrigger on Account (before insert) {
+	System.debug('Hello World!');
+}
+
+4.Para guardar, pulse Ctrl+S.
+5.Para probar el desencadenador, cree una cuenta.
+
+  *  Haga clic en Debug (Depurar) | Open Execute Anonymous Window (Abrir ventana de ejecución anónima).
+  *  En la ventana nueva, agregue lo siguiente y, a continuación, haga clic en Execute (Ejecutar).
+  
+Account a = new Account(Name='Test Trigger');
+insert a;
+
+6.En el registro de depuración, busque la declaración Hello World!. En el registro se muestra además que el desencadenador se ha ejecutado.
