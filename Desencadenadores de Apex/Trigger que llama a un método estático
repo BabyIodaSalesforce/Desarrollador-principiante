@@ -1,0 +1,30 @@
+1.En Developer Console, haga clic en File (Archivo) | New (Nuevo) | Apex Trigger (Desencadenador de Apex).
+2.Ingrese ExampleTrigger como nombre del desencadenador y, a continuación, seleccione Contact (Contacto) para el sObject. Haga clic en Submit (Enviar).
+3.Sustituya el código predeterminado por lo siguiente y, a continuación, modifique el texto de marcador de posición en sendMail() para su dirección de email.
+
+
+trigger ExampleTrigger on Contact (after insert, after delete) {
+    if (Trigger.isInsert) {
+        Integer recordCount = Trigger.New.size();
+        // Call a utility method from another class
+        EmailManager.sendMail('Your email address', 'Trailhead Trigger Tutorial', 
+                    recordCount + ' contact(s) were inserted.');
+    }
+    else if (Trigger.isDelete) {
+        // Process after delete
+    }
+}
+
+4.Para guardar, pulse Ctrl+S.
+5.Para probar el desencadenador, cree un contacto.
+   *Haga clic en Debug (Depurar) | Open Execute Anonymous Window (Abrir ventana de ejecución anónima).
+   *En la ventana nueva, agregue lo siguiente y, a continuación, haga clic en Execute (Ejecutar).
+   
+  Contact c = new Contact(LastName='Test Contact');
+  insert c;
+  
+
+6.En el registro de depuración, compruebe si el desencadenador se ha activado. Al final del registro, busque el mensaje de depuración escrito mediante el método de utilidad: DEBUG|Email sent successfully.
+7.A continuación, compruebe si ha recibido un email con el texto de cuerpo 1 contact(s) were inserted.
+
+Con el nuevo desencadenador, recibirá un email cada vez que agregue uno o varios contactos.
